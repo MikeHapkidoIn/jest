@@ -53,7 +53,7 @@ Luego, agregamos la siguiente línea en tu archivo `package.json` en la sección
 
 ```json
 "scripts": {
-    "test": "jest"
+    
 }
 ```
 
