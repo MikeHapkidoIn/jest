@@ -23,11 +23,11 @@ describe('Adding Products', () => {
     it('should add a product', () => {
         expect(()=>addProduct('manzana', 1)).not.toThrow(); // espera que no lance un error al añadir un producto con nombre y precio
         expect(getProducts()).toEqual([{id:0,name: 'manzana', price: 1}]); // espera que nos devuelva un array con un objeto con los datos del producto
-        addProduct('banana',3); // añade un producto para compruebar que se añade correctamente y que el id se incrementa correctamente
+        addProduct('banana',3); // añade un producto para comprobar que se añade correctamente y que el id se incrementa correctamente
         expect(getProducts()).toEqual([{id:0,name: 'manzana', price: 1},{id:1,name: 'banana', price: 3}]); // comprueba que se ha añadedo correctamente
     });
     it('should fail when adding a repeated product', () => {
-        addProduct('manzana', 1); // añade un producto para poder compruebar que no se añade un producto repetido
+        addProduct('manzana', 1); // añade un producto para poder comprobar que no se añade un producto repetido
         expect(()=>addProduct('manzana', 1)).toThrow(); // espera que lance un error al añadir un producto cuyo nombre ya existe
     });
     it('should fail when adding a product with no name', () => {
