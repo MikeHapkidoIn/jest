@@ -21,14 +21,14 @@ beforeEach(() => {
 describe('Adding Products', () => {
     
     it('should add a product', () => {
-        expect(()=>addProduct('apple', 1)).not.toThrow(); // espera que no lance un error al añadir un producto con nombre y precio
-        expect(getProducts()).toEqual([{id:0,name: 'apple', price: 1}]); // espera que nos devuelva un array con un objeto con los datos del producto
+        expect(()=>addProduct('manzana', 1)).not.toThrow(); // espera que no lance un error al añadir un producto con nombre y precio
+        expect(getProducts()).toEqual([{id:0,name: 'manzana', price: 1}]); // espera que nos devuelva un array con un objeto con los datos del producto
         addProduct('banana',3); // añade un producto para compruebar que se añade correctamente y que el id se incrementa correctamente
-        expect(getProducts()).toEqual([{id:0,name: 'apple', price: 1},{id:1,name: 'banana', price: 3}]); // comprueba que se ha añadedo correctamente
+        expect(getProducts()).toEqual([{id:0,name: 'manzana', price: 1},{id:1,name: 'banana', price: 3}]); // comprueba que se ha añadedo correctamente
     });
     it('should fail when adding a repeated product', () => {
-        addProduct('apple', 1); // añade un producto para poder compruebar que no se añade un producto repetido
-        expect(()=>addProduct('apple', 1)).toThrow(); // espera que lance un error al añadir un producto cuyo nombre ya existe
+        addProduct('manzana', 1); // añade un producto para poder compruebar que no se añade un producto repetido
+        expect(()=>addProduct('manzana', 1)).toThrow(); // espera que lance un error al añadir un producto cuyo nombre ya existe
     });
     it('should fail when adding a product with no name', () => {
         expect(()=>addProduct(null,3)).toThrow(); // espera que lance un error al añadir un producto con nombre null
@@ -46,7 +46,7 @@ describe('Removing Products', () => {
     it('should remove a product', () => {
         addProduct('banana', 2); // añade un producto para poder borrarlo
         expect(getProducts()).toEqual([{id:0,name: 'banana', price: 2}]); // comprueba que se ha añadedo bien
-        expect(()=>removeProduct('apple')).toThrow(); // espera que lance un error al intentar eliminar un producto que no existe
+        expect(()=>removeProduct('manzana')).toThrow(); // espera que lance un error al intentar eliminar un producto que no existe
         expect(getProducts()).toEqual([{id:0,name: 'banana', price: 2}]); // comprueba que no se ha borrado ningún producto
         expect(()=>removeProduct(0)).not.toThrow(); // espera que no lance un error al eliminar un producto que existe
         expect(getProducts()).toEqual([]); // comprueba que se ha borrado correctamente
@@ -58,11 +58,11 @@ describe('Getting a single product', () => {
     it('should get a product', () => {
         addProduct('banana', 2); // añade un producto para poder obtenerlo
         expect(getProducts()).toEqual([{id:0,name: 'banana', price: 2}]); // comprueba que se ha añadedo correctamente
-        expect(()=>getProduct('apple')).toThrow(); // espera que lance un error al intentar obtener un producto que no existe
+        expect(()=>getProduct('manzana')).toThrow(); // espera que lance un error al intentar obtener un producto que no existe
         expect(()=>getProduct(0)).not.toThrow(); // espera que no lance un error al obtener un producto que existe
-        addProduct('apple', 3); // añade un producto para poder obtenerlo
+        addProduct('manzana', 3); // añade un producto para poder obtenerlo
         expect(()=>getProduct(1)).not.toThrow(); // espera que no lance un error al obtener un producto que existe
-        expect(getProduct(1)).toEqual({id:1,name: 'apple', price: 3}); // comprueba que se ha obtenido correctamente
+        expect(getProduct(1)).toEqual({id:1,name: 'manzana', price: 3}); // comprueba que se ha obtenido correctamente
     });
 });
 
@@ -73,11 +73,11 @@ describe('Updating Products', () => {
     it('should update a product', () => {
         addProduct('banana', 2); // añade un producto para poder actualizarlo
         expect(getProducts()).toEqual([{id:0,name: 'banana', price: 2}]); // comprueba que se ha añadedo correctamente
-        updateProduct(0,'apple', 3); // actualiza el producto
-        expect(getProducts()).toEqual([{id:0,name: 'apple', price: 3}]); // comprueba que se ha actualizado correctamente
+        updateProduct(0,'manzana', 3); // actualiza el producto
+        expect(getProducts()).toEqual([{id:0,name: 'manzana', price: 3}]); // comprueba que se ha actualizado correctamente
     });
     it('should fail when updating a product that does not exist', () => {
-        expect(()=>updateProduct(0,'apple', 3)).toThrow(); // espera que lance un error al intentar actualizar un producto que no existe
+        expect(()=>updateProduct(0,'manzana', 3)).toThrow(); // espera que lance un error al intentar actualizar un producto que no existe
     });
     it('should only update the price', () => {
         addProduct('banana', 2); // añade un producto para poder actualizarlo
@@ -88,7 +88,7 @@ describe('Updating Products', () => {
     it('should only update the name', () => {
         addProduct('banana', 2); // añade un producto para poder actualizarlo
         expect(getProducts()).toEqual([{id:0,name: 'banana', price: 2}]); // comprueba que se ha añadedo correctamente
-        updateProduct(0,'apple', null); // actualiza el producto
-        expect(getProducts()).toEqual([{id:0,name: 'apple', price: 2}]); // comprueba que se ha actualizado correctamente     
+        updateProduct(0,'manzana', null); // actualiza el producto
+        expect(getProducts()).toEqual([{id:0,name: 'manzana', price: 2}]); // comprueba que se ha actualizado correctamente     
     });
 });
